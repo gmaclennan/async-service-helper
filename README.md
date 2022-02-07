@@ -1,5 +1,9 @@
 # async-service-helper
 
+[![Node.js CI](https://github.com/gmaclennan/async-service-helper/workflows/Node.js%20CI/badge.svg)](https://github.com/gmaclennan/async-service-helper/actions/workflows/node.js.yml)
+[![Coverage Status](https://coveralls.io/repos/github/gmaclennan/async-service-helper/badge.svg)](https://coveralls.io/github/gmaclennan/async-service-helper)
+[![Npm package version](https://img.shields.io/npm/v/async-service-helper)](https://npmjs.com/package/async-service-helper)
+
 
 Maintain state of a class that needs to asynchronously start and stop.
 
