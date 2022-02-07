@@ -4,7 +4,10 @@
   "description": "A helper class for services that need to start and stop asynchronously",
   "main": "index.js",
   "scripts": {
-    "test": "tap"
+    "test": "npm run type & npm run tap",
+    "tap": "tap",
+    "posttest": "mkdir -p coverage && tap --coverage-report=text-lcov > ./coverage/lcov.info",
+    "type": "tsc --noEmit"
   },
   "keywords": [
     "async",
