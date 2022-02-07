@@ -85,13 +85,13 @@ service is started, and will not call `_start()` more than once. If the
 service is in the process of stopping, will wait until it stops before
 starting and will not call `_stop()` more than once. Any parameters are passed through to `_start()`.
 
-Returns **[Promise][35]\<void>** Resolves when service is started
+Returns **[Promise][1]\<void>** Resolves when service is started
 
 ### stop()
 
 Stop the service.
 
-Returns **[Promise][35]\<void>** Resolves when service is stopped
+Returns **[Promise][1]\<void>** Resolves when service is stopped
 
 ### started()
 
@@ -108,7 +108,7 @@ Note: If the service is in "stopping" or "stopped" state this will queue
 until the next time the service starts. If this is not desirable behaviour,
 check `this.#state.value` first
 
-Returns **[Promise][35]\<void>**
+Returns **[Promise][1]\<void>**
 
 ### stopped()
 
@@ -126,7 +126,30 @@ Note: If the service is in "starting" or "started" state this will queue
 until the next time the service stops. If this is not desirable behaviour,
 check `this.#state.value` first
 
-Returns **[Promise][35]\<void>**
+Returns **[Promise][1]\<void>**
+
+### AsyncServiceState
+
+```ts
+type AsyncServiceState =
+  | {
+      value: "stopped" | "starting" | "started" | "stopping";
+    }
+  | {
+      value: "error";
+      error: Error;
+    };
+```
+
+## Protected methods
+
+These methods are designed to be used by subclasses, but not public.
+
+### getState()
+
+Return the current state of the service.
+
+Returns [AsyncServiceState](#asyncservicestate)
 
 ### addStateListener(listener)
 
@@ -149,3 +172,5 @@ Small note: If editing the README, please conform to the [standard-readme](https
 ## License
 
 MIT © 2022 Gregor MacLennan
+
+[1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
